@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+.slider {
+  list-style: none;
+  height: 810px;
+  margin: 0;
+  padding: 0;
+
+  li {
+    height: 810px;
+    background-size: cover;
+    &.slider-stations {
+      background: url("../images/Hero-Stations.jpg") center no-repeat;
+    }
+    &.slider-songs {
+      background: url("../images/Hero-Songs.jpg") center no-repeat;
+    }
+    &.slider-playlists {
+      background: url("../images/Hero-Playlists.jpg") center no-repeat;
+    }
+    &.slider-albums {
+      background: url("../images/Hero-Albums.jpg") center no-repeat;
+    }
+  }
+
+  .slide-text-area {
+    width: 600px;
+    position: absolute;
+    top: 440px;
+    left: 30px;
+    p {
+      line-height: 72px;
+      padding: 0 20px;
+      margin: 0;
+      color: #fff;
+      background-color: #4c8cd4;
+      font-size: 48px;
+      position: absolute;
+    }
+    .slide-title {
+      top: 0;
+      left: 0;
+      font-weight: 600;
+      z-index: 1;
+    }
+    .slide-instruction {
+      top: 56px;
+      left: 0;
+    }
+  }
+}

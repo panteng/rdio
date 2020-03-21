@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+// helpers
+@import "helpers/global-variables";
+@import "helpers/mixins";
+
+// base
+@import "base/reset";
+@import "base/base";
+@import "base/typography";
+
+// components
+@import "components/slider";
+@import "components/album";
+@import "components/text-area";
+@import "components/image-area";
+
+// layouts
+@import "layout/header";
+@import "layout/content";
+@import "layout/footer";

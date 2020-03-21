@@ -1,0 +1,36 @@
+{
+  "name": "rdio",
+  "version": "1.0.0",
+  "description": "A clone of Rdio.com's official website.",
+  "scripts": {
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.config.dev.js --inline --hot",
+    "prod": "node ./node_modules/webpack/bin/webpack.js --config webpack.config.prod.js -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panteng/rdio-copy.git"
+  },
+  "author": "Chris Pan",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "html-loader": "^0.4.3",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "font-awesome": "^4.5.0",
+    "jquery": "^2.2.1",
+    "normalize.css": "^3.0.3",
+    "skrollr": "^0.6.26",
+    "slick-carousel": "^1.8.1",
+    "smoothscroll-for-websites": "^1.4.4"
+  }
+}

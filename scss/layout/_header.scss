@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.header {
+  height: 80px;
+  position: relative;
+  background-color: #fff;
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .nav-left {
+    float: left;
+    height: 80px;
+    margin-left: 30px;
+    .btn-toggle-sidebar {
+      float: left;
+      margin-top: 26px;
+      margin-right: 15px;
+      padding: 0;
+      border: none;
+      background: none;
+      color: #4a90e2;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .logo {
+      float: left;
+      width: 77px;
+      height: 31px;
+      margin-top: 22px;
+      margin-right: 10px;
+      background: url("../images/icons.png") 0 -1162px;
+      cursor: pointer;
+    }
+    .btn-login {
+      float: left;
+      line-height: 48px;
+      padding: 0 10px;
+      margin-top: 16px;
+      color: #4a90e2;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        background-color: #0086cd;
+        color: #fff;
+      }
+    }
+  }
+
+  .nav-right {
+    float: right;
+    .btn-sign-up {
+      float: left;
+      line-height: 80px;
+      padding: 0 24px;
+      color: #4a90e2;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        background-color: #0086cd;
+        color: #fff;
+      }
+    }
+    .btn-fb-continue {
+      float: left;
+      line-height: 80px;
+      padding: 0 30px;
+      color: #fff;
+      background-color: #3b5998;
+      cursor: pointer;
+      &:hover {
+        background-color: #11275b;
+      }
+      i {
+        font-size: 24px;
+        margin-right: 5px;
+        position: relative;
+        top: 2px;
+      }
+    }
+  }
+}

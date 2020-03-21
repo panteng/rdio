@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+.text-area {
+  width: 50%;
+  height: 600px;
+  padding: 40px 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  .title {
+    margin: 0;
+    font-size: 42px;
+    font-weight: normal;
+    color: #fff;
+  }
+  .instruction {
+    margin: 30px 0 20px 0;
+    line-height: 20px;
+    font-size: 16px;
+    color: #fff;
+  }
+  .btn-start-listening-free {
+    display: inline-block;
+    margin-top: 80px;
+    padding: 20px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #3f6cc9;
+    cursor: pointer;
+    &:hover {
+      background-color: #11275b;
+    }
+  }
+
+  .instruction-section {
+    border-top: 1px solid #fff;
+    position: relative;
+
+    &:nth-child(5) {
+      border-bottom: 1px solid #fff;
+    }
+
+    .is-title {
+      width: calc(100% - 100px);
+      line-height: 40px;
+      margin: 0;
+      font-size: 20px;
+      font-weight: normal;
+      color: #fff;
+    }
+    .is-instruction {
+      width: calc(100% - 100px);
+      line-height: 20px;
+      margin: 0;
+      font-size: 20px;
+      color: #fff;
+    }
+    .is-detail {
+      width: calc(100% - 100px);
+      margin: 15px 0;
+      padding: 0 0 0 20px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      li {
+        margin-bottom: 5px;
+      }
+    }
+    .btn-price {
+      padding: 10px 15px;
+      color: #fff;
+      border: 1px solid #fff;
+      font-size: 12px;
+      position: absolute;
+      right: 0;
+      top: 40px;
+      cursor: pointer;
+      &:hover {
+        background-color: #fff;
+        color: rgba(239, 0, 73, 0.95);
+      }
+    }
+  }
+
+  .last-instruction {
+    line-height: 20px;
+    margin: 20px 0 0 0;
+    color: #fff;
+    font-size: 16px;
+    .link {
+      text-decoration: underline;
+    }
+  }
+
+  .get-app {
+    width: 360px;
+    margin: 70px 0 0 0;
+    padding: 0;
+    list-style: none;
+    @include clearFix();
+    li {
+      float: left;
+      width: 160px;
+      height: 50px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      background: red;
+
+      &:nth-child(1) {
+        background: url("../images/icons.png") no-repeat 0 -971px;
+      }
+      &:nth-child(2) {
+        background: url("../images/icons.png") no-repeat 0 -836px;
+      }
+      &:nth-child(3) {
+        background: url("../images/icons.png") no-repeat 0 -1419px;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
