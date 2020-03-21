@@ -6,7 +6,7 @@ module.exports = {
   entry: ["./javascripts/main.js"],
   output: {
     path: path.join(__dirname, "bundles"),
-    publicPath: "http://panteng.github.io/rdio/bundles/",
+    publicPath: "https://rdio.netlify.com/bundles/",
     filename: "bundle.js"
   },
   module: {

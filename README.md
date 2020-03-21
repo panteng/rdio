@@ -1,6 +1,6 @@
 # Rdio
 
-A clone of Rdio.com's official website.
+A clone of Rdio.com's official website. [Click here for demo.](https://rdio.netlify.com/)
 
 ![Screenshot](https://raw.githubusercontent.com/panteng/rdio/master/screenshot.jpg)
 
