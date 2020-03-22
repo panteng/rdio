@@ -1,6 +1,10 @@
 # Rdio
 
-A clone of Rdio.com's official website. [Click here for demo.](https://rdio.netlify.com/)
+A clone of Rdio.com's official website.
+
+[Click here for demo.](https://rdio.netlify.com/)
+
+> This project was originally written serveral years ago. Many of its dependencies are out of date and not compatible with the latest browsers. For this reason the demo site may throw errors and get broken at some point, especially on mobile devices.
 
 ![Screenshot](https://raw.githubusercontent.com/panteng/rdio/master/screenshot.jpg)
 
