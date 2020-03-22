@@ -58,5 +58,7 @@ module.exports = {
   plugins: [new ExtractTextPlugin("bundle.css")],
   devServer: {
     contentBase: "./"
+    // host: "192.168.x.x",
+    // disableHostCheck: true
   }
 };
