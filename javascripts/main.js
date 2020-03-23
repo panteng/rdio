@@ -10,14 +10,9 @@ require("slick-carousel");
 require("slick-carousel/slick/slick.css");
 
 var $ = require("jquery");
-var skrollr = require("skrollr");
+var Rellax = require("rellax");
 
 $(document).ready(function() {
-  skrollr.init({
-    smoothScrolling: false,
-    forceHeight: false
-  });
-
   $(".slider").slick({
     autoplay: true,
     autoplaySpeed: 5000,
@@ -27,5 +22,9 @@ $(document).ready(function() {
     dots: false,
     arrows: false,
     pauseOnHover: false
+  });
+
+  var rellax = new Rellax(".image-area .image", {
+    center: true
   });
 });
