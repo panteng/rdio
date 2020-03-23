@@ -1,59 +1,104 @@
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var path = require("path");
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const devConfig = require("./webpack.config.dev");
 
 module.exports = {
-  context: __dirname,
-  entry: ["./javascripts/main.js"],
-  output: {
-    path: path.join(__dirname, "bundles"),
-    publicPath: "https://rdio.netlify.com/bundles/",
-    filename: "bundle.js"
-  },
+  mode: "production",
+  entry: devConfig.entry,
+  output: devConfig.output,
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.html$/,
-        loader: "html"
+        use: {
+          loader: "html-loader"
+        }
       },
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract(
-          "style-loader",
-          "css-loader!autoprefixer-loader"
-        )
+        test: /\.(sa|sc|c)ss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       },
       {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          "style-loader",
-          "css-loader!autoprefixer-loader!sass-loader"
-        )
-      },
-      {
-        test: /\.(png|jpg)$/,
-        loader: "url?limit=40000"
+        test: /\.(png|jpe?g)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              useRelativePaths: true
+            }
+          }
+        ]
       },
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/font-woff"
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+              mimetype: "application/font-woff"
+            }
+          }
+        ]
       },
       {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/font-woff"
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+              mimetype: "application/font-woff"
+            }
+          }
+        ]
       },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/octet-stream"
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+              mimetype: "application/octet-stream"
+            }
+          }
+        ]
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "file"
+        use: [
+          {
+            loader: "file-loader"
+          }
+        ]
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=image/svg+xml"
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+              mimetype: "image/svg+xml"
+            }
+          }
+        ]
       }
     ]
   },
-  plugins: [new ExtractTextPlugin("bundle.css")]
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "bundle.css"
+    }),
+    new HtmlWebpackPlugin({
+      template: "./index.html",
+      filename: "index.html",
+      inject: "head",
+      favicon: "./favicon.ico"
+    })
+  ]
 };

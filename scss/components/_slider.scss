@@ -10,16 +10,16 @@
     height: 810px;
     background-size: cover;
     &.slider-stations {
-      background: url("/images/Hero-Stations.jpg") center no-repeat;
+      background: url("../images/Hero-Stations.jpg") center no-repeat;
     }
     &.slider-songs {
-      background: url("/images/Hero-Songs.jpg") center no-repeat;
+      background: url("../images/Hero-Songs.jpg") center no-repeat;
     }
     &.slider-playlists {
-      background: url("/images/Hero-Playlists.jpg") center no-repeat;
+      background: url("../images/Hero-Playlists.jpg") center no-repeat;
     }
     &.slider-albums {
-      background: url("/images/Hero-Albums.jpg") center no-repeat;
+      background: url("../images/Hero-Albums.jpg") center no-repeat;
     }
   }
 

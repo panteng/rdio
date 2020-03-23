@@ -1,64 +1,106 @@
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var path = require("path");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  context: __dirname,
+  mode: "development",
   entry: ["./javascripts/main.js"],
-  output: {
-    path: path.join(__dirname, "bundles"),
-    publicPath: "/bundles/",
-    filename: "bundle.js"
+  devtool: "inline-source-map",
+  devServer: {
+    contentBase: "./build",
+    hot: true,
+    inline: true
   },
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "build")
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./index.html",
+      filename: "index.html",
+      inject: "head",
+      favicon: "./favicon.ico"
+    })
+  ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.html$/,
-        loader: "html"
+        use: {
+          loader: "html-loader"
+        }
       },
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract(
-          "style-loader",
-          "css-loader!autoprefixer-loader"
-        )
+        test: /\.(sa|sc|c)ss$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          "style-loader",
-          "css-loader!autoprefixer-loader!sass-loader"
-        )
-      },
-      {
-        test: /\.(png|jpg)$/,
-        loader: "url?limit=40000"
+        test: /\.(png|jpe?g)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              useRelativePaths: true
+            }
+          }
+        ]
       },
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/font-woff"
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+              mimetype: "application/font-woff"
+            }
+          }
+        ]
       },
       {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/font-woff"
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+              mimetype: "application/font-woff"
+            }
+          }
+        ]
       },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=application/octet-stream"
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+              mimetype: "application/octet-stream"
+            }
+          }
+        ]
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "file"
+        use: [
+          {
+            loader: "file-loader"
+          }
+        ]
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: "url?limit=10000&mimetype=image/svg+xml"
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+              mimetype: "image/svg+xml"
+            }
+          }
+        ]
       }
     ]
-  },
-  plugins: [new ExtractTextPlugin("bundle.css")],
-  devServer: {
-    contentBase: "./"
-    // host: "192.168.x.x",
-    // disableHostCheck: true
   }
 };
